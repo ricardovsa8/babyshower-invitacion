@@ -3,26 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>🦕 Baby Shower · Yulissa</title>
-<meta property="og:title" content="¡Una bebé dino está por llegar! 🦖">
-<meta property="og:description" content="Edy & Gina te invitan al baby shower de Yulissa · Sábado 31 de octubre">
+<title>🎁 Baby Shower · Alara Salome </title>
+<meta property="og:title" content="¡Una bebé está por llegar! 🐰">
+<meta property="og:description" content="Edy & Gina te invitan al baby shower de Alara Salome · Sábado 17 de Octubre">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --page: #D9E4D6;        /* fondo exterior verde pálido */
-  --cream:#F6F4EA;       /* fondo hero */
-  --ivory:#FBF9F0;       /* fondo secciones claras */
-  --forest:#3E5C48;      /* verde oscuro (countdown, botón) */
-  --forest-deep:#2E4A38; /* titulares */
-  --gold:#C99A4B;        /* eyebrows / acentos */
-  --dusty:#8FAFC9;       /* azul del número de fecha */
-  --ink:#4A5A4C;
-  --muted:#7C8A7E;
-  --line:#E5E0CE;
-  --sage:#8FAE8B;
-  --egg:#EAD9B8;
+ 
+ :root{
+  --page: #FDE8EE;        /* fondo exterior rosa suave */
+  --cream:#FFF5F7;       /* fondo hero rosa blanquecino */
+  --ivory:#FFF9FA;       /* fondo secciones claras */
+  --forest:#C96582;      /* rosa viejo / botón y countdown */
+  --forest-deep:#8C354E; /* rosa profundo para titulares */
+  --gold:#D8917A;        /* acentos cálidos / oro rosado */
+  --dusty:#E58CA2;       /* rosa medio para números y detalles */
+  --ink:#5C3E46;         /* texto en tono castaño/rosa oscuro */
+  --muted:#9C737D;       /* texto secundario */
+  --line:#F2D3DC;        /* bordes sutiles */
+  --sage:#F4A7BB;        /* rosa pastel principal */
+  --egg:#FFE0E9;         /* base cálida de huevo/elementos */
 }
+
+
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
 html,body{height:100%}
@@ -47,7 +50,7 @@ body{
   transition:transform .15s;
 }
 #mute-btn:active{transform:scale(.9)}
-
+ 
 /* ═══════════ ESCENA 1: HUEVO (intro) ═══════════ */
 #scene-egg{
   position:fixed;inset:0;z-index:10;
@@ -55,23 +58,18 @@ body{
   transition:opacity .9s ease, visibility .9s;
   overflow:hidden;
   background:
-    radial-gradient(circle at 12% 18%, rgba(175,203,220,.35), transparent 42%),
-    radial-gradient(circle at 88% 82%, rgba(217,227,196,.5), transparent 45%),
-    linear-gradient(180deg,#EDF2E6, var(--cream));
+    radial-gradient(circle at 12% 18%, rgba(255,192,203,.35), transparent 42%),
+    radial-gradient(circle at 88% 82%, rgba(255,224,233,.5), transparent 45%),
+    linear-gradient(180deg,#FDEDF2, var(--cream));
 }
 #scene-egg.done{opacity:0;visibility:hidden;pointer-events:none}
 
 .wash{position:absolute;border-radius:50%;filter:blur(38px);pointer-events:none;opacity:.5}
-.wash-1{width:52vmin;height:52vmin;background:#BCD8C4;top:-12vmin;left:-14vmin}
-.wash-2{width:46vmin;height:46vmin;background:#C9DEEA;top:4vmin;right:-16vmin}
-.wash-3{width:58vmin;height:58vmin;background:#D9E6C4;bottom:-18vmin;left:8vmin}
+.wash-1{width:52vmin;height:52vmin;background:#FBC4D2;top:-12vmin;left:-14vmin}
+.wash-2{width:46vmin;height:46vmin;background:#F9D2DC;top:4vmin;right:-16vmin}
+.wash-3{width:58vmin;height:58vmin;background:#FFE2EA;bottom:-18vmin;left:8vmin}
 
-.foliage{position:absolute;pointer-events:none}
-.foliage svg{display:block;width:100%;height:auto}
-.fol-tl{top:-3vmin;left:-4vmin;width:clamp(140px,34vw,280px);animation:sway 7s ease-in-out infinite}
-.fol-tr{top:-4vmin;right:-5vmin;width:clamp(150px,36vw,300px);transform:scaleX(-1);animation:sway 8s ease-in-out infinite reverse}
-.fol-br{bottom:-3vmin;right:-4vmin;width:clamp(130px,32vw,260px);transform:scaleX(-1) rotate(-6deg);animation:sway 7.5s ease-in-out infinite reverse}
-@keyframes sway{0%,100%{rotate:0deg}50%{rotate:2.5deg}}
+
 
 .scene-eyebrow{
   font-size:.68rem;font-weight:800;letter-spacing:.32em;text-transform:uppercase;
@@ -92,9 +90,51 @@ body{
 }
 @keyframes floatIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 
+/* Contenedor con los tres huevos (centro y costados) */
+.egg-nest-container{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  width:min(96vw,520px);
+  margin-top:1rem;
+}
+
+.side-egg{
+  position:absolute;
+  bottom:8px;
+  width: clamp(110px, 28vw, 175px);
+    /*width:clamp(85px,22vw,135px);*/
+  aspect-ratio:3/3.6;
+  pointer-events:none;
+  z-index:1;
+  transition:opacity .6s ease, transform .6s ease;
+}
+.side-egg-left{
+  left:clamp(2px,4vw,28px);
+  transform:rotate(-14deg) scale(.92);
+  animation:sideBobLeft 4.2s ease-in-out infinite;
+}
+.side-egg-right{
+  right:clamp(2px,4vw,28px);
+  transform:rotate(15deg) scale(.88);
+  animation:sideBobRight 4.8s ease-in-out infinite;
+}
+.side-egg svg{width:100%;height:100%;display:block;overflow:visible}
+
+@keyframes sideBobLeft{
+  0%,100%{transform:rotate(-14deg) scale(.92) translateY(0)}
+  50%{transform:rotate(-11deg) scale(.92) translateY(-5px)}
+}
+@keyframes sideBobRight{
+  0%,100%{transform:rotate(15deg) scale(.88) translateY(0)}
+  50%{transform:rotate(12deg) scale(.88) translateY(-6px)}
+}
+
 #egg-stage{
   position:relative;z-index:2;
-  width:min(70vw,300px);aspect-ratio:3/3.6;
+  width:min(66vw,285px);aspect-ratio:3/3.6;
   margin-top:1.6rem;cursor:pointer;user-select:none;
   animation:floatIn 1s .45s ease both;
 }
@@ -125,7 +165,7 @@ body{
   30%{transform:rotate(7deg)}45%{transform:rotate(-5deg) translateY(-2px)}
   60%{transform:rotate(4deg)}80%{transform:rotate(-2deg)}100%{transform:rotate(0)}
 }
-.crack{stroke:#7D6743;stroke-width:3.6;fill:none;stroke-linecap:round;stroke-linejoin:round;
+.crack{stroke:#B5697D;stroke-width:3.6;fill:none;stroke-linecap:round;stroke-linejoin:round;
   stroke-dasharray:230;stroke-dashoffset:230;opacity:0}
 .crack.show{animation:drawCrack .45s ease forwards}
 @keyframes drawCrack{from{stroke-dashoffset:230;opacity:1}to{stroke-dashoffset:0;opacity:1}}
@@ -195,13 +235,92 @@ section{padding:3.4rem 1.6rem}
   padding-top:4rem;padding-bottom:2.6rem;
   text-align:center;
 }
-.hero-leaf{position:absolute;pointer-events:none;opacity:.9}
-.hero-leaf svg{display:block;width:100%;height:auto}
-.hl-tl{top:-40px;left:-46px;width:150px;transform:rotate(14deg)}
-.hl-r{top:16%;right:-40px;width:120px;transform:rotate(-18deg)}
-.hl-bl{bottom:6%;left:-50px;width:140px;transform:rotate(70deg)}
+/* ── Estructura de la Flor ── */
+.flor {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  pointer-events: none;
+}
+
+.petalo {
+  position: absolute;
+  width: 50px;
+  height: 70px;
+  background-color: #ff9bbb;
+  border-radius: 50px 50px 10px 10px;
+  top: 15px;
+  left: 50px;
+  transform-origin: bottom center;
+}
+
+.petalo:nth-child(1) { transform: rotate(0deg); }
+.petalo:nth-child(2) { transform: rotate(72deg); }
+.petalo:nth-child(3) { transform: rotate(144deg); }
+.petalo:nth-child(4) { transform: rotate(216deg); }
+.petalo:nth-child(5) { transform: rotate(288deg); }
+
+.centro {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: #ffdb4d;
+  border-radius: 50%;
+  top: 65px;
+  left: 55px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Posición y animación de flores en la Escena 1 (Huevos) */
+.flor-scene {
+  z-index: 1;
+}
+.flor-tl {
+  top: -10px;
+  left: -15px;
+  transform: scale(0.9);
+  animation: swayFlor 7s ease-in-out infinite;
+}
+.flor-tr {
+  top: -10px;
+  right: -15px;
+  transform: scale(0.95) rotate(20deg);
+  animation: swayFlor 8s ease-in-out infinite reverse;
+}
+.flor-br {
+  bottom: 5px;
+  right: -10px;
+  transform: scale(0.85) rotate(-15deg);
+  animation: swayFlor 7.5s ease-in-out infinite reverse;
+}
+
+@keyframes swayFlor {
+  0%, 100% { rotate: 0deg; }
+  50% { rotate: 4deg; }
+}
+
+/* Posición de flores en la sección Hero */
+.flor-hero {
+  opacity: .88;
+}
+.fh-tl {
+  top: -25px;
+  left: -35px;
+  transform: scale(0.65) rotate(15deg);
+}
+.fh-r {
+  top: 15%;
+  right: -35px;
+  transform: scale(0.55) rotate(-20deg);
+}
+.fh-bl {
+  bottom: 8%;
+  left: -35px;
+  transform: scale(0.6) rotate(45deg);
+}
+
 .hero h1{font-size:clamp(2.5rem,10.5vw,3.4rem);margin-top:.7rem}
-.hero .h-it{display:block;font-style:italic;font-size:.62em;color:#6E8A6E;margin-top:.1rem}
+.hero .h-it{display:block;font-style:italic;font-size:.62em;color:#B85D75;margin-top:.1rem}
 .hero .lead{font-size:.95rem;font-weight:600;color:var(--muted);margin-top:1.2rem}
 .hero .name{
   font-family:'DM Serif Display',serif;font-style:italic;
@@ -240,7 +359,7 @@ section{padding:3.4rem 1.6rem}
 .info-card .sub{font-weight:600;font-size:.88rem;color:var(--muted);margin-top:.15rem}
 .place-ico{
   flex:0 0 44px;height:44px;border-radius:50%;
-  background:#E9EFE3;display:flex;align-items:center;justify-content:center;
+  background:#E58CA2;display:flex;align-items:center;justify-content:center;
   font-size:1.2rem;
 }
 .place-eyebrow{font-size:.62rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
@@ -309,7 +428,7 @@ section{padding:3.4rem 1.6rem}
   box-shadow:0 3px 12px rgba(62,92,72,.06);
 }
 .gift-ico{flex:0 0 46px;height:46px;border-radius:50%;
-  background:#E9EFE3;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+  background:#E58CA2;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
 .gift-body{flex:1;min-width:0}
 .gift-title{font-family:'DM Serif Display',serif;font-size:1.08rem;color:var(--forest-deep);line-height:1.25}
 .gift-sub{font-size:.87rem;font-weight:600;color:var(--muted);line-height:1.5;margin-top:.3rem}
@@ -319,17 +438,18 @@ section{padding:3.4rem 1.6rem}
 
 .signature{
   font-family:'Caveat',cursive;font-weight:700;font-style:normal;
-  font-size:2.5rem;color:#6E8A6E;margin-top:2rem;
+  font-size:2.5rem;color:#B85D75;margin-top:2rem;
 }
 
+/* ── FOOTER ── */
 /* ── FOOTER ── */
 .footer{background:var(--page);text-align:center;padding:2.4rem 1.6rem 2.8rem}
 .footer .mini-dino{font-size:1.4rem}
 .footer p{font-size:.62rem;font-weight:800;letter-spacing:.3em;text-transform:uppercase;
-  color:#7A8F7C;margin-top:.6rem}
+  color:#B85D75;margin-top:.6rem}
 #replay{margin-top:1.1rem;background:none;border:none;cursor:pointer;
   font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
-  color:#95A897;text-decoration:underline}
+  color:#B85D75;text-decoration:underline}
 
 /* ── popover calendario ── */
 #cal-pop{position:fixed;inset:0;z-index:200;display:none;
@@ -354,7 +474,7 @@ section{padding:3.4rem 1.6rem}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.15s !important}
-  .egg-idle,.fol-tl,.fol-tr,.fol-br,#dino-photo.show img,.hero-dino.float,.scroll-cue .arrow{animation:none !important}
+  .egg-idle,.fol-tl,.fol-tr,.fol-br,#dino-photo.show img,.hero-dino.float,.scroll-cue .arrow,.side-egg{animation:none !important}
   .rv{opacity:1;transform:none}
 }
 </style>
@@ -374,14 +494,40 @@ section{padding:3.4rem 1.6rem}
       <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="3" result="n"/>
       <feDisplacementMap in="SourceGraphic" in2="n" scale="4"/>
     </filter>
+    <!-- ══════════ Color de huevos en la portada ══════ -->
     <linearGradient id="eggGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#F5E9CF"/><stop offset=".6" stop-color="#EAD9B8"/><stop offset="1" stop-color="#D8C29A"/>
+      <stop offset="0" stop-color="#F5E9CF"/>
+      <stop offset=".6" stop-color="#EAD9B8"/>
+      <stop offset="1" stop-color="#D8C29A"/>
     </linearGradient>
+
+    <linearGradient id="eggBlueGrad" x1="0" y1="0" x2="0" y2="1">
+
+      <stop offset="0%" stop-color="#FFF2F6"/>
+
+      <stop offset="60%" stop-color="#BEDCF3"/>
+
+      <stop offset="100%" stop-color="#93BDDF"/>
+
+    </linearGradient>
+
+    <linearGradient id="eggSageGrad" x1="0" y1="0" x2="0" y2="1">
+
+      <stop offset="0%" stop-color="#F2F8F0"/>
+
+      <stop offset="60%" stop-color="#D0E3CD"/>
+
+      <stop offset="100%" stop-color="#A5C4A2"/>
+
+    </linearGradient>
+<!-- ══════════ Color de hojas en la portada ══════════ -->
     <linearGradient id="leafA" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#A9C79C"/><stop offset="1" stop-color="#7C9F76"/>
+      <stop offset="0" stop-color="#F5A8BD"/>
+      <stop offset="1" stop-color="#C96582"/>
     </linearGradient>
     <linearGradient id="leafB" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#C4D9B2"/><stop offset="1" stop-color="#93B389"/>
+      <stop offset="0" stop-color="#FAD0DC"/>
+      <stop offset="1" stop-color="#DC7B97"/>
     </linearGradient>
   </defs>
 </svg>
@@ -390,46 +536,65 @@ section{padding:3.4rem 1.6rem}
 <section id="scene-egg" aria-label="Toca el huevo para abrir la invitación">
   <div class="wash wash-1"></div><div class="wash wash-2"></div><div class="wash wash-3"></div>
 
-  <div class="foliage fol-tl"><svg viewBox="0 0 300 300">
-    <g filter="url(#wc)">
-      <path d="M30 10 C120 20 190 80 200 170 C130 175 60 130 38 60 Z" fill="url(#leafA)" opacity=".95"/>
-      <ellipse cx="118" cy="86" rx="14" ry="8" fill="#F6F4EA" transform="rotate(35 118 86)"/>
-      <ellipse cx="150" cy="126" rx="16" ry="9" fill="#F6F4EA" transform="rotate(35 150 126)"/>
-      <path d="M10 60 C70 90 110 150 112 230 C60 210 20 150 8 90 Z" fill="url(#leafB)" opacity=".9"/>
-    </g>
-  </svg></div>
-  <div class="foliage fol-tr"><svg viewBox="0 0 300 300">
-    <g filter="url(#wc)">
-      <path d="M40 6 C140 14 220 84 232 190 C150 194 68 140 44 62 Z" fill="url(#leafB)" opacity=".95"/>
-      <ellipse cx="140" cy="95" rx="16" ry="9" fill="#F6F4EA" transform="rotate(38 140 95)"/>
-      <ellipse cx="176" cy="140" rx="18" ry="10" fill="#F6F4EA" transform="rotate(38 176 140)"/>
-    </g>
-    <g filter="url(#wc-soft)" opacity=".8">
-      <path d="M250 40 q-10 90 -60 160" stroke="#6E9C6E" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <g fill="#93B389">
-        <ellipse cx="238" cy="70" rx="20" ry="6" transform="rotate(24 238 70)"/>
-        <ellipse cx="230" cy="100" rx="22" ry="6.5" transform="rotate(30 230 100)"/>
-        <ellipse cx="218" cy="132" rx="23" ry="7" transform="rotate(36 218 132)"/>
-        <ellipse cx="204" cy="164" rx="22" ry="6.5" transform="rotate(42 204 164)"/>
-      </g>
-    </g>
-  </svg></div>
-  <div class="foliage fol-br"><svg viewBox="0 0 300 300">
-    <g filter="url(#wc)">
-      <path d="M16 292 C28 184 104 112 220 102 C204 216 124 278 16 292 Z" fill="url(#leafB)" opacity=".95"/>
-      <ellipse cx="130" cy="196" rx="17" ry="9" fill="#F6F4EA" transform="rotate(-36 130 196)"/>
-    </g>
-  </svg></div>
+  <div class="flor flor-scene flor-tl">
+    <div class="petalo"></div>
+    <div class="petalo"></div>
+    <div class="petalo"></div>
+    <div class="petalo"></div>
+    <div class="petalo"></div>
+    <div class="centro"></div>
+  </div>
+  <div class="flor flor-scene flor-tr">
+    <div class="petalo"></div>
+    <div class="petalo"></div>
+    <div class="petalo"></div>
+    <div class="petalo"></div>
+    <div class="petalo"></div>
+    <div class="centro"></div>
+  </div>
+  <div class="flor flor-scene flor-br">
+    <div class="petalo"></div>
+    <div class="petalo"></div>
+    <div class="petalo"></div>
+    <div class="petalo"></div>
+    <div class="petalo"></div>
+    <div class="centro"></div>
+  </div>
 
   <p class="scene-eyebrow">Una pequeña aventura está por comenzar</p>
   <h1 class="scene-title">Algo está por nacer…</h1>
-  <p class="scene-sub">🥚 ¡Toca el huevo para descubrirlo!</p>
+  <p class="scene-sub">🌷 ¡Toca un huevo para descubrirlo!</p>
 
+<!-- Nido con huevo izquierdo, central interactivo y derecho -->
+<div class="egg-nest-container">
+  <!-- Huevo Izquierdo -->
+  <div class="side-egg side-egg-left">
+    <svg viewBox="0 0 300 360">
+      <ellipse cx="150" cy="336" rx="90" ry="14" fill="#6E9C6E" opacity=".2"/>
+      <g filter="url(#wc-soft)">
+        <ellipse cx="150" cy="332" rx="96" ry="16" fill="#A9C79E"/>
+      </g>
+      <path d="M120 334 q5 -18 8 0 M170 334 q5 -20 8 0" stroke="#7FA379" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <g filter="url(#wc-soft)">
+        <path d="M150 24 C228 24 245 130 242 258 C242 312 202 338 150 338 C98 338 58 312 58 258 C55 130 72 24 150 24 Z" fill="url(#eggBlueGrad)"/>
+        <ellipse cx="116" cy="95" rx="26" ry="36" fill="#FFFFFF" opacity=".7" transform="rotate(-15 116 95)"/>
+        <circle cx="180" cy="85" r="11" fill="#A6CEEC" opacity=".8"/>
+        <circle cx="120" cy="180" r="9" fill="#A6CEEC" opacity=".8"/>
+        <circle cx="196" cy="170" r="7" fill="#A6CEEC" opacity=".8"/>
+        <circle cx="90" cy="135" r="6" fill="#A6CEEC" opacity=".8"/>
+        <circle cx="160" cy="275" r="8" fill="#7FA9C9" opacity=".65"/>
+        <circle cx="106" cy="290" r="10" fill="#7FA9C9" opacity=".65"/>
+      </g>
+    </svg>
+  </div>
+
+
+  <!-- Huevo Central (Interactivo) -->
   <div id="egg-stage" role="button" aria-label="Huevo de dinosaurio, tócalo tres veces para romperlo" tabindex="0">
-    <div id="rawr">¡RAWR!</div>
+    <div id="rawr">¡Hola!</div>
     <div id="dino-photo"><img class="dino-img" alt="Bebé triceratops saliendo del huevo"></div>
     <svg id="egg-svg" viewBox="0 0 300 360">
-      <ellipse cx="150" cy="336" rx="118" ry="18" fill="#6E9C6E" opacity=".22"/>
+      <ellipse cx="150" cy="336" rx="118" ry="18" fill="#C96582" opacity=".2"/>
       <g filter="url(#wc-soft)">
         <ellipse cx="150" cy="332" rx="124" ry="22" fill="#A9C79E"/>
         <ellipse cx="150" cy="330" rx="98" ry="16" fill="#BCD4AE"/>
@@ -461,6 +626,29 @@ section{padding:3.4rem 1.6rem}
       </g>
     </svg>
   </div>
+  
+     <!-- Huevo Derecho -->
+     <div class="side-egg side-egg-right">
+      <svg viewBox="0 0 300 360">
+        <ellipse cx="150" cy="336" rx="90" ry="14" fill="#6E9C6E" opacity=".2"/>
+        <g filter="url(#wc-soft)">
+          <ellipse cx="150" cy="332" rx="96" ry="16" fill="#A9C79E"/>
+        </g>
+        <path d="M125 334 q5 -18 8 0 M175 334 q5 -20 8 0" stroke="#7FA379" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <g filter="url(#wc-soft)">
+          <path d="M150 24 C228 24 245 130 242 258 C242 312 202 338 150 338 C98 338 58 312 58 258 C55 130 72 24 150 24 Z" fill="url(#eggSageGrad)"/>
+          <ellipse cx="116" cy="95" rx="26" ry="36" fill="#FFFFFF" opacity=".7" transform="rotate(-15 116 95)"/>
+          <circle cx="176" cy="90" r="10" fill="#B4D4B0" opacity=".85"/>
+          <circle cx="122" cy="184" r="8" fill="#B4D4B0" opacity=".85"/>
+          <circle cx="192" cy="176" r="6" fill="#B4D4B0" opacity=".85"/>
+          <circle cx="94" cy="142" r="5" fill="#B4D4B0" opacity=".85"/>
+          <circle cx="155" cy="280" r="8" fill="#88AE83" opacity=".65"/>
+          <circle cx="110" cy="295" r="9" fill="#88AE83" opacity=".65"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
 
   <div id="tap-hint">
     <span class="tap-dot" data-dot="1"></span>
@@ -475,25 +663,37 @@ section{padding:3.4rem 1.6rem}
   <div class="column">
 
     <!-- HERO -->
+    <!-- Modificando los colores de las hojas en la pagina de la invitación -->
     <section class="hero">
-      <div class="hero-leaf hl-tl"><svg viewBox="0 0 200 200"><g filter="url(#wc-soft)">
-        <path d="M100 10 C160 40 180 110 150 180 C90 160 60 100 70 40 Z" fill="#7FA379"/>
-        <path d="M96 30 C120 70 130 120 128 168" stroke="#5E8C61" stroke-width="3" fill="none" opacity=".5"/>
-        <path d="M96 60 l24 -8 M100 90 l28 -8 M104 120 l26 -6" stroke="#5E8C61" stroke-width="2.4" opacity=".4"/>
-      </g></svg></div>
-      <div class="hero-leaf hl-r"><svg viewBox="0 0 200 200"><g filter="url(#wc-soft)">
-        <path d="M100 10 C160 40 180 110 150 180 C90 160 60 100 70 40 Z" fill="#93B389"/>
-        <path d="M96 30 C120 70 130 120 128 168" stroke="#6E9C6E" stroke-width="3" fill="none" opacity=".5"/>
-      </g></svg></div>
-      <div class="hero-leaf hl-bl"><svg viewBox="0 0 200 200"><g filter="url(#wc-soft)">
-        <path d="M100 10 C160 40 180 110 150 180 C90 160 60 100 70 40 Z" fill="#A9C79C"/>
-        <path d="M96 60 l24 -8 M100 90 l28 -8 M104 120 l26 -6" stroke="#6E9C6E" stroke-width="2.4" opacity=".4"/>
-      </g></svg></div>
+      <div class="flor flor-hero fh-tl">
+        <div class="petalo"></div>
+        <div class="petalo"></div>
+        <div class="petalo"></div>
+        <div class="petalo"></div>
+        <div class="petalo"></div>
+        <div class="centro"></div>
+      </div>
+      <div class="flor flor-hero fh-r">
+        <div class="petalo"></div>
+        <div class="petalo"></div>
+        <div class="petalo"></div>
+        <div class="petalo"></div>
+        <div class="petalo"></div>
+        <div class="centro"></div>
+      </div>
+      <div class="flor flor-hero fh-bl">
+        <div class="petalo"></div>
+        <div class="petalo"></div>
+        <div class="petalo"></div>
+        <div class="petalo"></div>
+        <div class="petalo"></div>
+        <div class="centro"></div>
+      </div>
 
       <p class="eyebrow rv">Una pequeña aventura está por comenzar</p>
-      <h1 class="h-serif rv">Una bebé dino<span class="h-it">está por llegar</span></h1>
+      <h1 class="h-serif rv">Una bebé <span class="h-it">está por llegar</span></h1>
       <p class="lead rv">Acompáñanos a celebrar el baby shower de</p>
-      <p class="name rv">Yulissa</p>
+      <p class="name rv">Alara Salome</p>
       <img class="dino-img hero-dino float rv" alt="Bebé triceratops saliendo del huevo">
       <div class="scroll-cue rv">
         <p>Descubre la aventura</p>
@@ -507,10 +707,10 @@ section{padding:3.4rem 1.6rem}
       <h2 class="h-serif rv">Te esperamos para celebrar</h2>
 
       <div class="info-card rv">
-        <div class="date-num">31</div>
+        <div class="date-num">17</div>
         <div>
-          <p class="tit">Sabado 31 de octubre de 2026</p>
-          <p class="sub">Desde las 4:00 p.&nbsp;m.</p>
+          <p class="tit">Sabado 17 de octubre de 2026</p>
+          <p class="sub">Desde las 7:30 p.&nbsp;m.</p>
         </div>
       </div>
 
@@ -518,13 +718,13 @@ section{padding:3.4rem 1.6rem}
         <div class="place-ico">📍</div>
         <div>
           <p class="place-eyebrow">Dónde será</p>
-          <p class="place-name">Recreo Campestre"La Cabaña del Ciego"</p>
+          <p class="place-name">Recreo Campestre "La Cabaña del Ciego"</p>
           <p class="place-sub">Aucayacu, Peru</p>
         </div>
         <a class="map-link" id="btn-mapa" href="#" target="_blank" rel="noopener">Ver mapa</a>
       </div>
 
-      <button class="btn-outline rv" id="btn-cal">🗓️ Agregar al calendario</button>
+      <button class="btn-outline rv" id="btn-cal">📅 Agregar al calendario</button>
     </section>
 
     <!-- COUNTDOWN -->
@@ -550,13 +750,13 @@ section{padding:3.4rem 1.6rem}
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.6.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.3 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5s0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4 15 15 0 0 0 1.5.6 3.6 3.6 0 0 0 1.7.1 2.8 2.8 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3z"/></svg>
         Confirmar por WhatsApp
       </a>
-      <p class="wsp-num rv">+51 981 634 335</p>
+      <p class="wsp-num rv">+51 922 608 384</p>
 
       <div class="gift-card rv">
         <div class="gift-ico">🎁</div>
         <div class="gift-body">
           <p class="gift-title">Tu presencia es nuestro mejor regalo</p>
-          <p class="gift-sub">Si deseas tener un detalle con Yulissa, preparamos algunas ideas.</p>
+          <p class="gift-sub">Si deseas tener un detalle con Alara Salome, preparamos algunas ideas.</p>
           <a id="btn-regalos" class="gift-link" href="#" target="_blank" rel="noopener">Ver sugerencias de regalos →</a>
         </div>
       </div>
@@ -566,10 +766,10 @@ section{padding:3.4rem 1.6rem}
 
     <!-- FOOTER -->
     <div class="footer">
-      <div class="mini-dino">🦕</div>
+      <div class="mini-dino">🐰</div>
       <p>Una pequeña aventura está por comenzar</p>
       <br>
-      <button id="replay">🥚 ver la animación otra vez</button>
+      <button id="replay">⬅️ volver atras</button>
     </div>
 
   </div>
@@ -578,7 +778,7 @@ section{padding:3.4rem 1.6rem}
 <!-- popover calendario -->
 <div id="cal-pop" role="dialog" aria-label="Agregar al calendario">
   <div class="cal-box">
-    <h3>🗓️ Agregar al calendario</h3>
+    <h3> 📅 Agregar al calendario</h3>
     <a class="cal-opt" id="cal-google" href="#" target="_blank" rel="noopener">📆 Google Calendar</a>
     <button class="cal-opt" id="cal-ics">🍎 iPhone / Outlook (.ics)</button>
     <button class="cal-close" id="cal-close">Cerrar</button>
@@ -588,14 +788,14 @@ section{padding:3.4rem 1.6rem}
 <script>
 /* ═══════════ CONFIGURACIÓN — edita aquí ═══════════ */
 const CONFIG = {
-  inicio     : new Date(2026, 9, 31, 16, 0, 0),
-  fin        : new Date(2026, 9, 31, 21, 0, 0),
+  inicio     : new Date(2026, 9, 17, 16, 0, 0),
+  fin        : new Date(2026, 9, 17, 21, 0, 0),
   lugar      : "Recreo Campestre La Cabaña del Ciego - Aucayacu",
-  whatsapp   : "51981634335",
-  mensajeWsp : "¡Hola! Confirmo mi asistencia al baby shower de Yulissa 🦖💚",
+  whatsapp   : "51922608384",
+  mensajeWsp : "¡Hola! Confirmo mi asistencia al baby shower de Alara Salome",
   regalos    : "https://www.google.com/",
-  tituloEvento: "🦕 Baby Shower de Yulissa",
-  descEvento : "Edy & Gina te esperan para celebrar la llegada de Yulissa. Confirmar al WhatsApp +51 981 634 335"
+  tituloEvento: "🎁 Baby Shower de Alara Salome",
+  descEvento : "Edy & Gina te esperan para celebrar la llegada de Alara Salome. Confirmar al WhatsApp +51 981 634 335"
 };
 /* ══════════════════════════════════════════════════ */
 
@@ -891,7 +1091,7 @@ function initReveals(){
 }
 
 function confetti(){
-  const emojis = ['🍃','🌿','🥚','💚','🦕','✨','🍃'];
+  const emojis = ['🌸','🐰','🎀','💖','🌷','✨','💚'];
   for (let i=0;i<30;i++){
     const s = document.createElement('span');
     s.className = 'confetti';
